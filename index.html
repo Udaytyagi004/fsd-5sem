@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+
+        }
+        .child{
+            width: 200px;
+            height: 300px;
+            border: 2px solid black;
+            margin: 4px;
+            background-color: red;
+        }
+        .child img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="child"><img src="image-1.jpg" alt=""></div>
+    <div class="child"> <img src="image-2.jpg" alt=""></div>
+    <div class="child"><img src="image-3.jpg" alt=""></div>
+    <div class="child"><img src="image-4.jpg" alt=""></div>
+</div>
+    
+</body>
+</html>

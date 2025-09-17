@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid </title>
+  <style>
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      width: 300px;
+      height: 300px;
+      border: 2px solid black;
+    }
+    .box {
+      border: 1px solid black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .inner-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      width: 90%;
+      height: 90%;
+      border: 1px solid black;
+    }
+    .inner-grid div {
+      border: 1px solid black;
+    }
+    /* Top-right: vertical division */
+    .vertical {
+      width: 90%;
+      height: 90%;
+      border: 1px solid black;
+      display: flex;
+    }
+    .vertical div {
+      flex: 1;
+      border-left: 1px solid black;
+    }
+    /* Bottom-left: single vertical line */
+    .single-vertical {
+      width: 90%;
+      height: 90%;
+      border: 1px solid black;
+      position: relative;
+    }
+    .single-vertical::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      border-left: 1px solid black;
+    }
+    /* Bottom-right: 2x2 inner grid */
+    .inner-grid2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      width: 90%;
+      height: 90%;
+      border: 1px solid black;
+    }
+    .inner-grid2 div {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <div class="box">
+      <div class="inner-grid">
+        <div></div><div></div>
+        <div></div><div></div>
+      </div>
+    </div>
+    
+    <div class="box">
+      <div class="vertical">
+        <div></div><div></div>
+      </div>
+    </div>
+    
+    <div class="box">
+      <div class="single-vertical"></div>
+    </div>
+    
+    <div class="box">
+      <div class="inner-grid2">
+        <div></div><div></div>
+        <div></div><div></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
