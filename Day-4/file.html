@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #bulb {
+        height: 200px;
+        width: 200px;
+        background-color: rgb(86, 84, 84);
+        border-radius: 50%;
+        margin-bottom: 20px;
+        transition: background-color 0.3s ease;
+      }
+    </style>
+    <script>
+      let isOn = true;
+      let currentColor = "red";
+
+      function colorHandler(color) {
+        if (!isOn) return;
+        currentColor = color;
+        const bulb = document.getElementById("bulb");
+        bulb.style.backgroundColor = color;
+      }
+
+      function toggleOnOff() {
+        const bulb = document.getElementById("bulb");
+        const btn = document.getElementById("toggleBtn");
+        if (isOn) {
+          bulb.style.backgroundColor = "rgb(86, 84, 84)";
+          btn.value = "TURN ON";
+        } else {
+          bulb.style.backgroundColor = currentColor;
+          btn.value = "TURN OFF";
+        }
+        isOn = !isOn;
+      }
+    </script>
+  </head>
+  <body>
+    <div id="bulb"></div>
+
+    <input type="button" value="RED" onclick="colorHandler('red')" />
+    <input type="button" value="GREEN" onclick="colorHandler('green')" />
+    <input type="button" value="YELLOW" onclick="colorHandler('yellow')" />
+    <input type="button" value="BLUE" onclick="colorHandler('blue')" />
+    <br /><br />
+    <input
+      type="button"
+      id="toggleBtn"
+      value="TURN OFF"
+      onclick="toggleOnOff()"
+    />
+  </body>
+</html>
