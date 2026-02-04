@@ -1,13 +1,21 @@
 const http = require("http");
+const fs = require("fs");
 
 http
   .createServer((req, res) => {
-    if (req.url === "/" && method === "GET") {
-      res.end("Home page");
-    } else if (req.url === "/login" && method === "GET") {
+    if (req.url === "/" && req.method === "GET") {
+      res.writeHead(200, { "Content-Type": "image/jpeg" });
+
+      const stream = fs.createReadStream("2.jpg");
+      stream.pipe(res);
+    } else if (req.url === "/login" && req.method === "GET") {
       res.end("Login Page");
+    } else if (req.url === "/about") {
+      res.end("My name is Uday Tyagi");
+    } else if (req.url === "/contact") {
+      res.end("Phone No. 9027652365");
     } else {
-      res.end("Hello from the server");
+      res.end("ERROR : 404 Page not found");
     }
   })
   .listen(3000, () => {
